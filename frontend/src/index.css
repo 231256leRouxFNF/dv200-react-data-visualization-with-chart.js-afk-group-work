@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f4f4f4;
   color: #333;
 }
@@ -17,8 +17,41 @@ body {
 
 /* Title */
 .app-title {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
+  color: #900639;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Chart Grid */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #900639;
+}
+
+.card canvas {
+  max-width: 100%;
 }
