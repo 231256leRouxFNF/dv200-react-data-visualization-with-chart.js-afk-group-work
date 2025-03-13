@@ -9,6 +9,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  LogarithmicScale,
 } from "chart.js";
 
 ChartJS.register(
@@ -18,32 +19,88 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  LogarithmicScale
 );
 
 const data = {
-  labels: ["January", "February", "March", "April", "May", "June"],
+  labels: ["Electric", "Hybrid", "Combustion"],
   datasets: [
     {
-      label: "Sales",
-      data: [33, 53, 85, 41, 44, 65],
+      label: "Price (USD)",
+      data: [3000000, 2100000, 30000000],
       fill: false,
-      borderColor: "#900639",
-      tension: 0.1,
-    },
+      borderColor: "#646464",
+      tension: 0.4,
+      pointRadius: 5,
+      pointHoverRadius: 7,
+    }
   ],
 };
 
 const options = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
-    legend: { position: "top" },
-    title: { display: true, text: "Line Chart Example" },
+    legend: {
+      position: 'top',
+      labels: {
+        boxWidth: 12
+      }
+    },
+    title: { 
+      display: true, 
+      text: "Premium Vehicle Market Analysis",
+      padding: { bottom: 20 }
+    },
+    tooltip: {
+      callbacks: {
+        label: (context) => {
+          const value = context.parsed.y || context.dataset.data[context.dataIndex];
+          return ` $${value.toLocaleString()}`;
+        }
+      }
+    }
+  },
+  scales: {
+    y: {
+      // The 'logarithmic' scale is used for the y-axis to better visualize data with large differences in values.
+      // This is particularly useful in this case where the prices of different vehicle types vary significantly.
+      type: "logarithmic",
+      grid: {
+        color: 'rgba(200, 200, 200, 0.2)'
+      },
+      ticks: {
+        callback: (value) => `$${value.toLocaleString()}`,
+        maxTicksLimit: 6
+      },
+      title: {
+        display: true,
+        text: 'Price (USD)'
+      }
+    },
+    x: {
+      grid: {
+        display: false
+      },
+      title: {
+        display: true,
+        text: 'Powertrain Type'
+      }
+    }
   },
 };
 
 const LineChart = () => {
-  return <Line data={data} options={options} />;
+  return (
+    <div style={{ 
+      height: '400px', // Adjust this value to match your card height
+      minHeight: '300px',
+      position: 'relative'
+    }}>
+      <Line data={data} options={options} />
+    </div>
+  );
 };
 
 export default LineChart;

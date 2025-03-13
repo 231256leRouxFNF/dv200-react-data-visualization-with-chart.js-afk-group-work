@@ -2,6 +2,8 @@ import React from "react";
 import BarChart from "../charts/BarChart";
 import LineChart from "../charts/LineChart";
 import PieChart from "../charts/PieChart";
+import "../../styles/dashboard.css";
+
 
 const Dashboard = () => {
   return (
@@ -14,6 +16,7 @@ const Dashboard = () => {
         </div>
         <div className="card">
           <h3>Line Chart</h3>
+          
           <LineChart />
         </div>
         <div className="card">

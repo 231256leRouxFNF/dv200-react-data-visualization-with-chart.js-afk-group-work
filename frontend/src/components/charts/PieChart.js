@@ -5,12 +5,12 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const data = {
-  labels: ["Red", "Blue", "Yellow"],
+  labels: ["Hybrids", "Electric", "Combustion"],
   datasets: [
     {
       label: "Population",
-      data: [300, 500, 200],
-      backgroundColor: ["#900639", "#F2D398", "#646464"],
+      data: [30, 10, 50],
+      backgroundColor: ["#900639", "#646464", "#F2D398"],
       hoverOffset: 4,
     },
   ],
@@ -20,7 +20,7 @@ const options = {
   responsive: true,
   plugins: {
     legend: { position: "top" },
-    title: { display: true, text: "Pie Chart Example" },
+    title: { display: true, text: "Fuel types" },
   },
 };
 

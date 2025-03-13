@@ -20,18 +20,15 @@ ChartJS.register(
 );
 
 const data = {
-  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  labels: ["Hybrid", "Electric", "Combustion"],
   datasets: [
     {
       label: "Votes",
-      data: [12, 19, 3, 5, 2, 3],
+      data: [15, 25, 10],
       backgroundColor: [
         "#900639",
         "#F2D398",
         "#646464",
-        "#C8C8C8",
-        "#B4B4B4",
-        "#787878",
       ],
     },
   ],
@@ -41,7 +38,7 @@ const options = {
   responsive: true,
   plugins: {
     legend: { position: "top" },
-    title: { display: true, text: "Bar Chart Example" },
+    title: { display: true, text: "Vehicle Type Votes" },
   },
 };
 
