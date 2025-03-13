@@ -24,7 +24,7 @@ const data = {
   datasets: [
     {
       label: "Votes",
-      data: [15, 25, 10],
+      data: [15, 25, 10], //recieve data from the backend
       backgroundColor: [
         "#900639",
         "#F2D398",
@@ -42,6 +42,8 @@ const options = {
   },
 };
 
+// This BarChart component visualizes the number of votes for different vehicle types (Hybrid, Electric, Combustion).
+// Each bar represents the votes for a specific vehicle type, with different colors for each type.
 const BarChart = () => {
   return <Bar data={data} options={options} />;
 };
